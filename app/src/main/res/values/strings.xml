@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">UNParche</string>
+    <string name="nick">Nick</string>
+    <string name="nombre">Nombre</string>
+    <string name="apellido">Apellido</string>
+    <string name="edad">Edad</string>
+    <string name="descripcion">Descripcion</string>
+</resources>
