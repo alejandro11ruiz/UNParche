@@ -3,7 +3,7 @@ package com.example.unparche.interfaces.intermedios;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.unparche.MainActivity;
+import com.example.unparche.interfaces.login.MainActivity;
 import com.example.unparche.R;
 import com.example.unparche.entidades.Usuario;
 import com.example.unparche.interfaces.UsuarioActivity;

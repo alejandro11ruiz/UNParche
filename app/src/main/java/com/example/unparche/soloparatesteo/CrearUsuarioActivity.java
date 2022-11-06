@@ -2,7 +2,7 @@ package com.example.unparche.soloparatesteo;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.unparche.MainActivity;
+import com.example.unparche.interfaces.login.MainActivity;
 import com.example.unparche.R;
 import com.example.unparche.entidades.Usuario;
 import com.google.firebase.database.FirebaseDatabase;
