@@ -14,12 +14,15 @@
         android:theme="@style/Theme.UNParche"
         tools:targetApi="31">
         <activity
+            android:name=".interfaces.UsuarioEditarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".interfaces.intermedios.PostLoginActivity"
+            android:exported="false" />
+        <activity
             android:name=".interfaces.login.ResetPasswordActivity"
             android:exported="false"
             android:label="@string/frame_name_reset" />
-        <activity
-            android:name=".interfaces.login.HomeActivity"
-            android:exported="false" />
         <activity
             android:name=".interfaces.login.RegistrarActivity"
             android:exported="false"

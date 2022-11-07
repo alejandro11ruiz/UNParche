@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".interfaces.UsuarioActivity">
+    tools:context=".interfaces.UsuarioEditarActivity">
 
     <TextView
         android:layout_marginTop="10dp"
@@ -17,7 +17,7 @@
         android:text="@string/email" />
 
     <TextView
-        android:id="@+id/tvNick"
+        android:id="@+id/tvEmail"
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
@@ -35,7 +35,7 @@
         android:textSize="18sp"
         android:text="@string/nombre" />
 
-    <TextView
+    <EditText
         android:id="@+id/tvNombre"
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
@@ -54,7 +54,7 @@
         android:textSize="18sp"
         android:text="@string/apellido" />
 
-    <TextView
+    <EditText
         android:id="@+id/tvApellido"
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
@@ -73,7 +73,7 @@
         android:textSize="18sp"
         android:text="@string/edad" />
 
-    <TextView
+    <EditText
         android:id="@+id/tvEdad"
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
@@ -92,7 +92,7 @@
         android:textSize="18sp"
         android:text="@string/descripcion" />
 
-    <TextView
+    <EditText
         android:id="@+id/tvDescripcion"
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
@@ -102,24 +102,11 @@
         android:textSize="28sp"
         android:hint="@string/descripcion" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButtonEditActivity"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="10dp"
+    <Button
+        android:id="@+id/btnGuardar"
+        android:layout_marginTop="20sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:clickable="true"
-        android:layout_gravity="bottom|right"
-        app:srcCompat="@android:drawable/ic_menu_edit" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButtonEraseActivity"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        android:layout_gravity="bottom|right"
-        app:srcCompat="@android:drawable/ic_menu_delete" />
+        android:text="@string/guardar" />
 
 </LinearLayout>

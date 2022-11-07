@@ -9,14 +9,18 @@
         <entry key="..\:/Users/earui/AndroidStudioProjects/UNParche/app/src/main/res/layout/activity_crear_evento.xml" value="0.14947916666666666" />
         <entry key="..\:/Users/earui/AndroidStudioProjects/UNParche/app/src/main/res/layout/activity_crear_sitio.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/earui/AndroidStudioProjects/UNParche/app/src/main/res/layout/activity_crear_usuario.xml" value="0.16354166666666667" />
+        <entry key="..\:/Users/earui/AndroidStudioProjects/UNParche/app/src/main/res/layout/activity_crear_usuario2.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/earui/AndroidStudioProjects/UNParche/app/src/main/res/layout/activity_home.xml" value="0.259375" />
         <entry key="..\:/Users/earui/AndroidStudioProjects/UNParche/app/src/main/res/layout/activity_login.xml" value="0.2" />
         <entry key="..\:/Users/earui/AndroidStudioProjects/UNParche/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/earui/AndroidStudioProjects/UNParche/app/src/main/res/layout/activity_menu_principal.xml" value="0.2453125" />
         <entry key="..\:/Users/earui/AndroidStudioProjects/UNParche/app/src/main/res/layout/activity_pre_usuario.xml" value="0.1" />
+        <entry key="..\:/Users/earui/AndroidStudioProjects/UNParche/app/src/main/res/layout/activity_pre_usuario_nuevo.xml" value="0.259375" />
         <entry key="..\:/Users/earui/AndroidStudioProjects/UNParche/app/src/main/res/layout/activity_registrar.xml" value="0.2" />
         <entry key="..\:/Users/earui/AndroidStudioProjects/UNParche/app/src/main/res/layout/activity_reset_password.xml" value="0.14907407407407408" />
         <entry key="..\:/Users/earui/AndroidStudioProjects/UNParche/app/src/main/res/layout/activity_usuario.xml" value="0.2" />
+        <entry key="..\:/Users/earui/AndroidStudioProjects/UNParche/app/src/main/res/layout/activity_usuario_editar.xml" value="0.259375" />
+        <entry key="..\:/Users/earui/AndroidStudioProjects/UNParche/app/src/main/res/layout/activity_usuario_update.xml" value="0.259375" />
       </map>
     </option>
   </component>

@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
 import com.example.unparche.R;
+import com.example.unparche.interfaces.intermedios.PostLoginActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -27,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
     public static final String PATH_SITIOS = "Sitios";
     public static final String PATH_EVENTOS = "Eventos";
     public static final String PATH_ACTIVIDADES = "Actividades";
+
+    public static final String DOT_REPLACEMENT = "-";
 
     EditText mUsername, mPassword;
     Button mLogin, mRegistrar, mRestaurar;
@@ -49,8 +52,9 @@ public class MainActivity extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         FirebaseAuth mAuth =FirebaseAuth.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
+        //mAuth.signOut();
 
-        if(user != null){
+        if(user != null && user.isEmailVerified()){
             irAHome();
         }
 
@@ -115,8 +119,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void irAHome() {
-        Intent intent = new Intent(MainActivity.this, HomeActivity.class);
-        intent.putExtra("mail", mUsername.getText().toString());
+        Intent intent = new Intent(MainActivity.this, PostLoginActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }

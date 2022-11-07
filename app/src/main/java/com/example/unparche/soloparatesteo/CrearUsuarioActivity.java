@@ -36,7 +36,7 @@ public class CrearUsuarioActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(!nick.getText().toString().isEmpty() && !nombre.getText().toString().isEmpty()){
                     usuario=new Usuario(nick.getText().toString(),nombre.getText().toString(),apellido.getText().toString(),edad.getText().toString(),descripcion.getText().toString());
-                    FirebaseDatabase.getInstance().getReference(MainActivity.PATH_USUARIOS).child(usuario.getNick()).setValue(usuario);
+                    FirebaseDatabase.getInstance().getReference(MainActivity.PATH_USUARIOS).child(usuario.getEmail()).setValue(usuario);
                 }
             }
         });

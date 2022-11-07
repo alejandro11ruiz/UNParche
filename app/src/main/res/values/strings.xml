@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">UNParche</string>
-    <string name="nick">Nick</string>
+    <string name="email">Email</string>
     <string name="nombre">Nombre</string>
     <string name="apellido">Apellido</string>
     <string name="edad">Edad</string>
@@ -26,4 +26,5 @@
 
     <string name="frame_name_registro">Registro</string>
     <string name="frame_name_reset">Recuperación</string>
+    <string name="guardar">Guardar</string>
 </resources>

@@ -50,7 +50,7 @@ public class PreUsuarioActivity extends AppCompatActivity {
             @Override
             public void run() {
                 Intent intent = new Intent(PreUsuarioActivity.this, UsuarioActivity.class);
-                intent.putExtra("nick", usuario.getNick());
+                intent.putExtra("nick", usuario.getEmail());
                 intent.putExtra("nombre", usuario.getNombre());
                 intent.putExtra("apellido", usuario.getApellido());
                 intent.putExtra("edad", usuario.getEdad());

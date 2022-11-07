@@ -4,35 +4,47 @@ import java.util.ArrayList;
 
 public class Usuario {
 
-    private String nick, nombre, apellido, edad, descripcion;
+    private String email, nombre, apellido, edad, descripcion;
     private ArrayList<String> amigos, actividades, sitios, eventos;
 
     public Usuario(){
-        nick="";
-        nombre="";
-        apellido="";
-        edad="";
-        descripcion="";
+        email="null";
+        nombre="null";
+        apellido="null";
+        edad="null";
+        descripcion="null";
         amigos=new ArrayList<>();
         actividades=new ArrayList<>();
         sitios=new ArrayList<>();
         eventos=new ArrayList<>();
     }
 
-    public Usuario(String nick, String nombre){
-        this.nick=nick;
+    public Usuario(String email){
+        this.email=email;
+        nombre="null";
+        apellido="null";
+        edad="null";
+        descripcion="null";
+        amigos=new ArrayList<>();
+        actividades=new ArrayList<>();
+        sitios=new ArrayList<>();
+        eventos=new ArrayList<>();
+    }
+
+    public Usuario(String email, String nombre){
+        this.email=email;
         this.nombre=nombre;
-        apellido="";
-        edad="";
-        descripcion="";
+        apellido="null";
+        edad="null";
+        descripcion="null";
         amigos=new ArrayList<>();
         actividades=new ArrayList<>();
         sitios=new ArrayList<>();
         eventos=new ArrayList<>();
     }
 
-    public Usuario(String nick, String nombre, String apellido, String edad, String descripcion){
-        this.nick=nick;
+    public Usuario(String email, String nombre, String apellido, String edad, String descripcion){
+        this.email=email;
         this.nombre=nombre;
         this.apellido=apellido;
         this.edad=edad;
@@ -43,8 +55,8 @@ public class Usuario {
         eventos=new ArrayList<>();
     }
 
-    public Usuario(String nick, String nombre, String apellido, String edad, String descripcion, ArrayList<String> amigos, ArrayList<String> actividades, ArrayList<String> sitios, ArrayList<String> eventos){
-        this.nick=nick;
+    public Usuario(String email, String nombre, String apellido, String edad, String descripcion, ArrayList<String> amigos, ArrayList<String> actividades, ArrayList<String> sitios, ArrayList<String> eventos){
+        this.email=email;
         this.nombre=nombre;
         this.apellido=apellido;
         this.edad=edad;
@@ -55,12 +67,12 @@ public class Usuario {
         this.eventos=eventos;
     }
 
-    public String getNick() {
-        return nick;
+    public String getEmail() {
+        return email;
     }
 
-    public void setNick(String nick) {
-        this.nick = nick;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getNombre() {
@@ -130,11 +142,11 @@ public class Usuario {
 
 
     public void clearUser(){
-        nick="";
-        nombre="";
-        apellido="";
-        edad="";
-        descripcion="";
+        email="null";
+        nombre="null";
+        apellido="null";
+        edad="null";
+        descripcion="null";
         if(amigos.size()!=0) amigos.clear();
         if(actividades.size()!=0) actividades.clear();
         if(sitios.size()!=0) sitios.clear();

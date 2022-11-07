@@ -6,22 +6,22 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
 import com.example.unparche.R;
+import com.example.unparche.entidades.Usuario;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
-import java.util.regex.Pattern;
 
 public class RegistrarActivity extends AppCompatActivity {
 
@@ -30,6 +30,7 @@ public class RegistrarActivity extends AppCompatActivity {
 
     FirebaseAuth firebaseAuth;
     AwesomeValidation awesomeValidation;
+    Usuario usuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +70,8 @@ public class RegistrarActivity extends AppCompatActivity {
                                     public void onComplete(@NonNull Task<Void> task) {
                                         if(task.isSuccessful()){
                                             Toast.makeText(RegistrarActivity.this, "Correo de confirmación enviado", Toast.LENGTH_SHORT).show();
-                                            finish();
+                                            instUsuario(user.getEmail());
+                                            term();
                                         }else{
                                             String errorCode = ((FirebaseAuthException) task.getException()).getErrorCode();
                                             dameToastDeError(errorCode);
@@ -87,6 +89,24 @@ public class RegistrarActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void term() {
+        Handler handler = new Handler();
+
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                finish();
+            }
+        },1000);
+
+    }
+
+    private void instUsuario(String mail) {
+        String mailEd = mail.replace(".",MainActivity.DOT_REPLACEMENT);
+        usuario = new Usuario(mail);
+        FirebaseDatabase.getInstance().getReference(MainActivity.PATH_USUARIOS).child(mailEd).setValue(usuario);
     }
 
     private void dameToastDeError(String error) {
