@@ -40,7 +40,8 @@ public class PostLoginActivity extends AppCompatActivity {
         FirebaseAuth mAuth =FirebaseAuth.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
 
-        String key = user.getEmail().replace(".",MainActivity.DOT_REPLACEMENT);
+        //String key = user.getEmail().replace(".",MainActivity.DOT_REPLACEMENT);
+        String key = user.getUid();
 
         handler = new Handler();
 

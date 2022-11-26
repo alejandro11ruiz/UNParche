@@ -38,7 +38,8 @@ public class UsuarioEditarActivity extends AppCompatActivity {
         FirebaseAuth mAuth =FirebaseAuth.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
 
-        String key = user.getEmail().replace(".", MainActivity.DOT_REPLACEMENT);
+        //String key = user.getEmail().replace(".", MainActivity.DOT_REPLACEMENT);
+        String key = user.getUid();
 
         etNombre = findViewById(R.id.tvNombre);
         etApellido = findViewById(R.id.tvApellido);
@@ -51,8 +52,11 @@ public class UsuarioEditarActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 usuario = snapshot.getValue(Usuario.class);
-                tvEmail.setText(usuario.getEmail());
-
+                if(!usuario.getNombre().equals("null"))etNombre.setText(usuario.getNombre());
+                if(!usuario.getApellido().equals("null"))etApellido.setText(usuario.getApellido());
+                if(!usuario.getEdad().equals("null"))etEdad.setText(usuario.getEdad());
+                if(!usuario.getDescripcion().equals("null"))etDescripcion.setText(usuario.getDescripcion());
+                if(!usuario.getEmail().equals("null"))tvEmail.setText(usuario.getEmail());
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {

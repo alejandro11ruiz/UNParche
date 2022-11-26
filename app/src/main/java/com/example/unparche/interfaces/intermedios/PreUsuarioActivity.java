@@ -7,6 +7,8 @@ import com.example.unparche.interfaces.login.MainActivity;
 import com.example.unparche.R;
 import com.example.unparche.entidades.Usuario;
 import com.example.unparche.interfaces.UsuarioActivity;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -22,6 +24,7 @@ public class PreUsuarioActivity extends AppCompatActivity {
 
     ProgressBar progressBar;
     Usuario usuario;
+    FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,18 +34,22 @@ public class PreUsuarioActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar);
         progressBar.setVisibility(View.VISIBLE);
 
-        Bundle bundle = getIntent().getExtras();
-        if(bundle != null){
-            FirebaseDatabase.getInstance().getReference(MainActivity.PATH_USUARIOS).child(bundle.getString("key")).addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    usuario = snapshot.getValue(Usuario.class);
-                }
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-                }
-            });
-        }
+        firebaseAuth = FirebaseAuth.getInstance();
+        FirebaseAuth mAuth =FirebaseAuth.getInstance();
+        FirebaseUser user = mAuth.getCurrentUser();
+
+        //String key = user.getEmail().replace(".",MainActivity.DOT_REPLACEMENT);
+        String key = user.getUid();
+
+        FirebaseDatabase.getInstance().getReference(MainActivity.PATH_USUARIOS).child(key).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                usuario = snapshot.getValue(Usuario.class);
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
 
         Handler handler = new Handler();
 
@@ -50,7 +57,7 @@ public class PreUsuarioActivity extends AppCompatActivity {
             @Override
             public void run() {
                 Intent intent = new Intent(PreUsuarioActivity.this, UsuarioActivity.class);
-                intent.putExtra("nick", usuario.getEmail());
+                intent.putExtra("email", usuario.getEmail());
                 intent.putExtra("nombre", usuario.getNombre());
                 intent.putExtra("apellido", usuario.getApellido());
                 intent.putExtra("edad", usuario.getEdad());

@@ -70,7 +70,7 @@ public class RegistrarActivity extends AppCompatActivity {
                                     public void onComplete(@NonNull Task<Void> task) {
                                         if(task.isSuccessful()){
                                             Toast.makeText(RegistrarActivity.this, "Correo de confirmación enviado", Toast.LENGTH_SHORT).show();
-                                            instUsuario(user.getEmail());
+                                            instUsuario(user.getUid(), user.getEmail());
                                             term();
                                         }else{
                                             String errorCode = ((FirebaseAuthException) task.getException()).getErrorCode();
@@ -103,10 +103,10 @@ public class RegistrarActivity extends AppCompatActivity {
 
     }
 
-    private void instUsuario(String mail) {
-        String mailEd = mail.replace(".",MainActivity.DOT_REPLACEMENT);
-        usuario = new Usuario(mail);
-        FirebaseDatabase.getInstance().getReference(MainActivity.PATH_USUARIOS).child(mailEd).setValue(usuario);
+    private void instUsuario(String uid, String email) {
+        //String mailEd = mail.replace(".",MainActivity.DOT_REPLACEMENT);
+        usuario = new Usuario(email);
+        FirebaseDatabase.getInstance().getReference(MainActivity.PATH_USUARIOS).child(uid).setValue(usuario);
     }
 
     private void dameToastDeError(String error) {
