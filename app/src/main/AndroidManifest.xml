@@ -14,7 +14,7 @@
         android:theme="@style/Theme.UNParche"
         tools:targetApi="31">
         <activity
-            android:name=".PostAggActividadActivity"
+            android:name=".interfaces.intermedios.PostAggActividadActivity"
             android:exported="false" />
         <activity
             android:name=".interfaces.ListaActividadesTotalesActivity"

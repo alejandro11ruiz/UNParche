@@ -56,27 +56,30 @@ public class PostAggActividadActivity extends AppCompatActivity {
             }
         });
 
-        Bundle bundle = getIntent().getExtras();
-        String nAct = "null";
-        if(bundle!=null){
-            nAct = bundle.getString("key");
-        }
-
-        if(!yaExiste(nAct, usuario.getActividades())&&!nAct.equals("null")){
-            usuario.aggActividad(nAct);
-            FirebaseDatabase.getInstance().getReference(MainActivity.PATH_USUARIOS).child(key).setValue(usuario);
-        }
 
         Handler handler = new Handler();
 
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
+                Bundle bundle = getIntent().getExtras();
+                String nAct = "null";
+                if(bundle!=null){
+                    nAct = bundle.getString("key");
+                }
+
+                if(!yaExiste(nAct, usuario.getActividades())&&!nAct.equals("null")){
+                    ArrayList<String> aux = usuario.getActividades();
+                    aux.add(nAct);
+                    usuario.setActividades(aux);
+                    FirebaseDatabase.getInstance().getReference(MainActivity.PATH_USUARIOS).child(key).setValue(usuario);
+                }
+
                 Intent intent = new Intent(PostAggActividadActivity.this, ListaActividadesActivity.class);
                 intent.putStringArrayListExtra("actividades", usuario.getActividades());
                 startActivity(intent);
             }
-        },3000);
+        },2000);
 
     }
 

@@ -55,7 +55,6 @@ public class ListaActividadesAdapter extends RecyclerView.Adapter<ListaActividad
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Context context = view.getContext();
                 }
             });
 

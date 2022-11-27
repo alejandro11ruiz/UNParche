@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.unparche.R;
 import com.example.unparche.interfaces.intermedios.PostAggActividadActivity;
+import com.example.unparche.interfaces.intermedios.PreListaActividadesActivity;
 
 import java.util.ArrayList;
 
