@@ -17,6 +17,7 @@ public class UsuarioActivity extends AppCompatActivity {
 
     TextView tvEmail, tvNombre, tvApellido, tvEdad, tvDescripcion;
     FloatingActionButton btnEditar, btnLogOut;
+    Button btnActividades;
 
     FirebaseAuth firebaseAuth;
 
@@ -34,6 +35,7 @@ public class UsuarioActivity extends AppCompatActivity {
         tvEdad = findViewById(R.id.tvEdad);
         tvDescripcion = findViewById(R.id.tvDescripcion);
 
+        btnActividades = findViewById(R.id.btnListaActividades);
         btnEditar = findViewById(R.id.floatingActionButtonEdit);
         btnLogOut = findViewById(R.id.floatingActionButtonLogOut);
 
@@ -46,6 +48,15 @@ public class UsuarioActivity extends AppCompatActivity {
             if(!bundle.getString("edad").equals("null"))tvEdad.setText(bundle.getString("edad"));
             if(!bundle.getString("descripcion").equals("null"))tvDescripcion.setText(bundle.getString("descripcion"));
         }
+
+        btnActividades.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(UsuarioActivity.this, ListaActividadesActivity.class);
+                intent.putStringArrayListExtra("actividades", getIntent().getExtras().getStringArrayList("actividades"));
+                startActivity(intent);
+            }
+        });
 
         btnEditar.setOnClickListener(new View.OnClickListener() {
             @Override

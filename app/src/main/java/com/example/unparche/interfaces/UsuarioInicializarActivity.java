@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.unparche.R;
 import com.example.unparche.entidades.Usuario;
-import com.example.unparche.interfaces.intermedios.PreUsuarioActivity;
 import com.example.unparche.interfaces.login.MainActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -21,7 +20,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class UsuarioEditarActivity extends AppCompatActivity {
+public class UsuarioInicializarActivity extends AppCompatActivity {
 
     EditText etNombre, etApellido, etEdad, etDescripcion;
     TextView tvEmail;
@@ -33,7 +32,7 @@ public class UsuarioEditarActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_usuario_editar);
+        setContentView(R.layout.activity_usuario_inicializar);
 
         firebaseAuth = FirebaseAuth.getInstance();
         FirebaseAuth mAuth =FirebaseAuth.getInstance();
@@ -79,13 +78,11 @@ public class UsuarioEditarActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         if(!usuario.getNombre().equals("null")){
-                            startActivity(new Intent(UsuarioEditarActivity.this, PreUsuarioActivity.class));
+                            startActivity(new Intent(UsuarioInicializarActivity.this, MenuPrincipalActivity.class));
                         }
                     }
                 },1000);
             }
         });
-
-
     }
 }

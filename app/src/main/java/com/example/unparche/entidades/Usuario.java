@@ -124,6 +124,10 @@ public class Usuario {
         this.actividades = actividades;
     }
 
+    public void aggActividad(String actividad){
+        this.actividades.add(actividad);
+    }
+
     public ArrayList<String> getSitios() {
         return sitios;
     }
