@@ -1,19 +1,17 @@
 package com.example.unparche.adaptadores;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.unparche.R;
-import com.example.unparche.entidades.Sitios;
+import com.example.unparche.entidades.Sitio;
 import com.example.unparche.interfaces.sitio.VerSitioActivity;
 
 import java.util.ArrayList;
@@ -23,10 +21,10 @@ import java.util.stream.Collectors;
 public class ListaMisSitiosAdapter extends RecyclerView.Adapter<ListaMisSitiosAdapter.SitioViewHolder> {
 
 
-    ArrayList<Sitios> listaSitios;
-    ArrayList<Sitios> listaOriginal;
+    ArrayList<Sitio> listaSitios;
+    ArrayList<Sitio> listaOriginal;
 
-    public ListaMisSitiosAdapter(ArrayList<Sitios> listaSitios){
+    public ListaMisSitiosAdapter(ArrayList<Sitio> listaSitios){
         this.listaSitios = listaSitios;
         listaOriginal = new ArrayList<>();
         listaOriginal.addAll(listaSitios);
@@ -53,12 +51,12 @@ public class ListaMisSitiosAdapter extends RecyclerView.Adapter<ListaMisSitiosAd
             listaSitios.addAll(listaOriginal);
         } else {
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
-                List<Sitios> coleccion = listaSitios.stream().filter(i -> i.getNombre().toLowerCase()
+                List<Sitio> coleccion = listaSitios.stream().filter(i -> i.getNombre().toLowerCase()
                         .contains(txtBuscar.toLowerCase())).collect(Collectors.toList());
                 listaSitios.clear();
                 listaSitios.addAll(coleccion);
             } else {
-                for (Sitios c:listaOriginal){
+                for (Sitio c:listaOriginal){
                     if(c.getNombre().toLowerCase().contains(txtBuscar.toLowerCase())){
                         listaSitios.add(c);
                     }

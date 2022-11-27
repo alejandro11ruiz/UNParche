@@ -18,6 +18,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -66,12 +67,14 @@ public class PostAggActividadActivity extends AppCompatActivity {
                 if(bundle!=null){
                     nAct = bundle.getString("key");
                 }
-
-                if(!yaExiste(nAct, usuario.getActividades())&&!nAct.equals("null")){
+                boolean ext = yaExiste(nAct, usuario.getActividades());
+                if(!ext&&!nAct.equals("null")){
                     ArrayList<String> aux = usuario.getActividades();
                     aux.add(nAct);
                     usuario.setActividades(aux);
                     FirebaseDatabase.getInstance().getReference(MainActivity.PATH_USUARIOS).child(key).setValue(usuario);
+                }else if(ext){
+                    Toast.makeText(PostAggActividadActivity.this, "Esta actividad ya es una de tus favoritas.", Toast.LENGTH_SHORT).show();
                 }
 
                 Intent intent = new Intent(PostAggActividadActivity.this, ListaActividadesActivity.class);

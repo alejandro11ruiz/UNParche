@@ -8,12 +8,12 @@ import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import com.example.unparche.R;
 import android.widget.Toast;
 
-import com.example.unparche.entidades.Sitios;
+import com.example.unparche.entidades.Sitio;
+import com.example.unparche.interfaces.login.MainActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
@@ -22,7 +22,7 @@ public class VerSitioActivity extends AppCompatActivity {
 
     EditText txtNombre, txtDireccion, txtCiudad, txtCoorLat, txtCoorLon;
     Button btnGuardar, btnEditar, btnEliminar;
-    Sitios sitio;
+    Sitio sitio;
     FirebaseAuth firebaseAuth;
 
     @Override
@@ -46,7 +46,7 @@ public class VerSitioActivity extends AppCompatActivity {
 
 
 
-        sitio = new Sitios();
+        sitio = new Sitio();
 
 
         if(sitio != null){
@@ -75,8 +75,7 @@ public class VerSitioActivity extends AppCompatActivity {
             //.setNegativeButton("No", new DialogInterface.OnClickListener() {
             builder.setMessage("Confirma para borrar este contacto").
                     setPositiveButton("Confirmar", (dialogInterface, i) -> {
-                        //TODO cambiar a MainActivity.PATH_SITIOS
-                        FirebaseDatabase.getInstance().getReference("Sitios").child(key).removeValue();
+                        FirebaseDatabase.getInstance().getReference(MainActivity.PATH_SITIOS).child(key).removeValue();
                         startActivity(new Intent(this, ListaMisSitiosActivity.class));
                         Toast.makeText(this, "Contacto borrado", Toast.LENGTH_SHORT).show();
                     })

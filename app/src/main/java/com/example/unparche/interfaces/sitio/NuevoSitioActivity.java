@@ -1,6 +1,5 @@
 package com.example.unparche.interfaces.sitio;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -9,21 +8,16 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.unparche.R;
-import com.example.unparche.entidades.Sitios;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.firebase.auth.AuthResult;
+import com.example.unparche.entidades.Sitio;
+import com.example.unparche.interfaces.login.MainActivity;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 public class NuevoSitioActivity extends AppCompatActivity {
 
     EditText  txtNombre, txtCiudad, txtDireccion, txtCoorLat, txtCoorLon;
     Button btnCrear;
-    Sitios sitio;
+    Sitio sitio;
 
     FirebaseAuth firebaseAuth;
 
@@ -41,7 +35,7 @@ public class NuevoSitioActivity extends AppCompatActivity {
         //FirebaseUser user = mAuth.getCurrentUser();
         //String key = user.getUid();
 
-        sitio= new Sitios();
+        sitio= new Sitio();
 
         txtNombre=findViewById(R.id.txtNombre);
         txtCiudad=findViewById(R.id.txtCiudad);
@@ -59,8 +53,7 @@ public class NuevoSitioActivity extends AppCompatActivity {
             if(!txtCoorLat.getText().toString().isEmpty()) sitio.setCoordenadaLat(txtCoorLat.getText().toString());
             if(!txtCoorLon.getText().toString().isEmpty()) sitio.setCoordenadaLon(txtCoorLon.getText().toString());
 
-            // TODO Cambiar "Sitios" por MainActivity.PATH_SITIOS
-            FirebaseDatabase.getInstance().getReference("Sitios").child("lolololol").setValue(sitio);
+            FirebaseDatabase.getInstance().getReference(MainActivity.PATH_SITIOS).child("lolololol").setValue(sitio);
 
 
             Intent intent = new Intent(NuevoSitioActivity.this, ListaMisSitiosActivity.class);

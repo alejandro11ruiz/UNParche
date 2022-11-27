@@ -2,7 +2,7 @@ package com.example.unparche.entidades;
 
 import java.util.ArrayList;
 
-public class Sitios {
+public class Sitio {
 
     private String ID;
     private String nombre;
@@ -12,7 +12,7 @@ public class Sitios {
     private String coordenadaLat;
     private String coordenadaLon;
 
-    public Sitios(){
+    public Sitio(){
         ID="null";
         nombre="null";
         actividad= new ArrayList<>();
@@ -22,7 +22,7 @@ public class Sitios {
         coordenadaLat="null";
     }
 
-    public Sitios(String ID, String nombre, String ciudad, String direccion, String coordenadaLon, String coordenadaLat){
+    public Sitio(String ID, String nombre, String ciudad, String direccion, String coordenadaLon, String coordenadaLat){
         this.ID= ID;
         this.nombre=nombre;
         actividad= new ArrayList<>();
@@ -32,7 +32,7 @@ public class Sitios {
         this.coordenadaLat=coordenadaLat;
     }
 
-    public Sitios(String ID, String nombre, String ciudad, String direccion, String coordenadaLon, String coordenadaLat, ArrayList<String> actividad){
+    public Sitio(String ID, String nombre, String ciudad, String direccion, String coordenadaLon, String coordenadaLat, ArrayList<String> actividad){
         this.ID=ID;
         this.nombre=nombre;
         this.actividad= actividad;

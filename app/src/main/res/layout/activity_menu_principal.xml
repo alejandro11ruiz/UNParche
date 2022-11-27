@@ -10,57 +10,34 @@
 
     <Button
         android:id="@+id/buttonSitios"
+        android:layout_marginTop="30sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="50sp"
         android:text="Sitios" />
 
     <Button
         android:id="@+id/buttonPerfil"
+        android:layout_marginTop="20sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="50sp"
         android:text="Perfil" />
 
     <Button
         android:id="@+id/buttonEventos"
+        android:layout_marginTop="20sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="50sp"
         android:text="Eventos" />
 
     <Button
         android:id="@+id/buttonAmigos"
+        android:layout_marginTop="20sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="50sp"
         android:text="Amigos" />
 
-    <TextView
-        android:layout_marginTop="50sp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Dev Tool"
-        android:gravity="center"
-        android:textSize="26sp"/>
-
-    <Button
-        android:id="@+id/buttonCrearSitio"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Crear Sitio" />
-
-    <Button
-        android:id="@+id/buttonCrearAtividad"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Crear Actividad" />
-
-    <Button
-        android:id="@+id/buttonCrearEvento"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Crear Evento" />
-
-    <Button
-        android:id="@+id/buttonCrearUsuario"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Crear Usuario" />
 </LinearLayout>

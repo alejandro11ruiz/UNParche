@@ -8,7 +8,7 @@
     tools:context=".interfaces.actividad.ActividadCrearActivity">
 
     <EditText
-        android:id="@+id/tvNombre"
+        android:id="@+id/etNombre"
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"

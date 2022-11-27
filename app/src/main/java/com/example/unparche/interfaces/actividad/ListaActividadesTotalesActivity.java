@@ -41,7 +41,7 @@ public class ListaActividadesTotalesActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ListaActividadesTotalesActivity.this, ActividadCrearActivity.class);
-                intent.putExtra("actividades", listaActividades);
+                intent.putStringArrayListExtra("actividades", listaActividades);
                 startActivity(intent);
             }
         });

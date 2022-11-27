@@ -3,7 +3,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.unparche.R;
-import com.example.unparche.entidades.Sitios;
+import com.example.unparche.entidades.Sitio;
+import com.example.unparche.interfaces.login.MainActivity;
 import com.example.unparche.interfaces.sitio.ListaMisSitiosActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -21,7 +22,7 @@ import android.widget.ProgressBar;
 public class PreSitiosActivity extends AppCompatActivity {
 
     ProgressBar progressBar;
-    Sitios sitio;
+    Sitio sitio;
     FirebaseAuth firebaseAuth;
 
     @Override
@@ -38,11 +39,11 @@ public class PreSitiosActivity extends AppCompatActivity {
 
         //String key = user.getEmail().replace(".",MainActivity.DOT_REPLACEMENT);
         String key = user.getUid();
-//TODO MainActivity.PATH_USUARIOS cambia el Sitios
-        FirebaseDatabase.getInstance().getReference("Sitios").child(key).addValueEventListener(new ValueEventListener() {
+
+        FirebaseDatabase.getInstance().getReference(MainActivity.PATH_USUARIOS).child(key).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                sitio = snapshot.getValue(Sitios.class);
+                sitio = snapshot.getValue(Sitio.class);
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {

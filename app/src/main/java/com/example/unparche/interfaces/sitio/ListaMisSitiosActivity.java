@@ -12,7 +12,7 @@ import android.view.MenuItem;
 import android.widget.SearchView;
 import com.example.unparche.R;
 import com.example.unparche.adaptadores.ListaMisSitiosAdapter;
-import com.example.unparche.entidades.Sitios;
+import com.example.unparche.entidades.Sitio;
 
 import java.util.ArrayList;
 
@@ -20,7 +20,7 @@ public class ListaMisSitiosActivity extends AppCompatActivity implements SearchV
 
     SearchView txtBuscar;
     RecyclerView listaMisSitios;
-    ArrayList<Sitios> listaArrayMisSitios;
+    ArrayList<Sitio> listaArrayMisSitios;
     ListaMisSitiosAdapter adapter;
 
     @Override
