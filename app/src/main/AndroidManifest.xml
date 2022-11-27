@@ -14,24 +14,21 @@
         android:theme="@style/Theme.UNParche"
         tools:targetApi="31">
         <activity
+            android:name=".interfaces.actividad.ActividadCrearActivity"
+            android:exported="false" />
+        <activity
             android:name=".interfaces.intermedios.PostAggActividadActivity"
             android:exported="false" />
         <activity
-            android:name=".interfaces.ListaActividadesTotalesActivity"
+            android:name=".interfaces.actividad.ListaActividadesTotalesActivity"
             android:exported="false" />
         <activity
             android:name=".interfaces.intermedios.PreListaActividadesActivity"
             android:exported="false" />
         <activity
-            android:name=".interfaces.ListaActividadesActivity"
+            android:name=".interfaces.actividad.ListaActividadesActivity"
             android:exported="false"
             android:label="Mis actividades" />
-        <activity
-            android:name=".interfaces.UsuarioInicializarActivity"
-            android:exported="false" />
-        <activity
-            android:name=".interfaces.UsuarioEditarActivity"
-            android:exported="false" />
         <activity
             android:name=".interfaces.intermedios.PostLoginActivity"
             android:exported="false" />
@@ -44,26 +41,16 @@
             android:exported="false"
             android:label="@string/frame_name_registro" />
         <activity
-            android:name=".soloparatesteo.CrearActividadActivity"
-            android:exported="false" />
-        <activity
-            android:name=".soloparatesteo.CrearEventoActivity"
-            android:exported="false" />
-        <activity
-            android:name=".soloparatesteo.CrearSitioActivity"
-            android:exported="false" />
-        <activity
-            android:name=".soloparatesteo.CrearUsuarioActivity"
-            android:exported="false" />
-        <activity
-            android:name=".interfaces.UsuarioActivity"
-            android:parentActivityName=".interfaces.MenuPrincipalActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".interfaces.MenuPrincipalActivity" />
-        </activity>
-        <activity
             android:name=".interfaces.intermedios.PreUsuarioActivity"
+            android:exported="false" />
+        <activity
+            android:name=".interfaces.usuario.UsuarioActivity"
+            android:exported="false" />
+        <activity
+            android:name=".interfaces.usuario.UsuarioEditarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".interfaces.usuario.UsuarioInicializarActivity"
             android:exported="false" />
         <activity
             android:name=".interfaces.MenuPrincipalActivity"

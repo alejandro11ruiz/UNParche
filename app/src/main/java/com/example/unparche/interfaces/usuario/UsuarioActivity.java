@@ -1,11 +1,11 @@
-package com.example.unparche.interfaces;
+package com.example.unparche.interfaces.usuario;
 
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.unparche.R;
+import com.example.unparche.interfaces.actividad.ListaActividadesActivity;
 import com.example.unparche.interfaces.login.MainActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 import android.content.Intent;
 import android.os.Bundle;

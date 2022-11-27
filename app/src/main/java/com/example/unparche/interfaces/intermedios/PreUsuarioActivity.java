@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.unparche.interfaces.login.MainActivity;
 import com.example.unparche.R;
 import com.example.unparche.entidades.Usuario;
-import com.example.unparche.interfaces.UsuarioActivity;
+import com.example.unparche.interfaces.usuario.UsuarioActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
