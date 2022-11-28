@@ -2,6 +2,7 @@ package com.example.unparche.interfaces;
 
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.unparche.R;
+import com.example.unparche.interfaces.intermedios.PreListaAmigosActivity;
 import com.example.unparche.interfaces.intermedios.PreUsuarioActivity;
 import com.example.unparche.interfaces.sitio.SitiosActivity;
 
@@ -36,9 +37,7 @@ public class MenuPrincipalActivity extends AppCompatActivity {
         buttonPerfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MenuPrincipalActivity.this, PreUsuarioActivity.class);
-                intent.putExtra("key", "todo");
-                startActivity(intent);
+                startActivity(new Intent(MenuPrincipalActivity.this, PreUsuarioActivity.class));
             }
         });
 
@@ -52,7 +51,7 @@ public class MenuPrincipalActivity extends AppCompatActivity {
         buttonAmigos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                startActivity(new Intent(MenuPrincipalActivity.this, PreListaAmigosActivity.class));
             }
         });
 

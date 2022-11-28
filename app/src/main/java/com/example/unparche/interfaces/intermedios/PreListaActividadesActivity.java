@@ -76,15 +76,6 @@ public class PreListaActividadesActivity extends AppCompatActivity {
             @Override
             public void run() {
                 Intent intent = new Intent(PreListaActividadesActivity.this, ListaActividadesTotalesActivity.class);
-                /*intent.putExtra("email", usuario.getEmail());
-                intent.putExtra("nombre", usuario.getNombre());
-                intent.putExtra("apellido", usuario.getApellido());
-                intent.putExtra("edad", usuario.getEdad());
-                intent.putExtra("descripcion", usuario.getDescripcion());
-                intent.putStringArrayListExtra("amigos", usuario.getAmigos());
-                intent.putStringArrayListExtra("actividades", usuario.getActividades());
-                intent.putStringArrayListExtra("sitios", usuario.getSitios());
-                intent.putStringArrayListExtra("eventos", usuario.getEventos());*/
                 intent.putStringArrayListExtra("actividadesTotales", actividades);
                 startActivity(intent);
             }
@@ -92,17 +83,4 @@ public class PreListaActividadesActivity extends AppCompatActivity {
 
     }
 
-    /*private ArrayList<String> quitarElementosExistentes(ArrayList<String> exist, ArrayList<String> total){
-        ArrayList<String> lista = new ArrayList<>();
-        int tam1 = exist.size();
-        int tam2 = total.size();
-        for(int i=0; i<tam1; i++){
-            String aux1 = exist.get(i);
-            for(int j=0; j<tam2; j++){
-                String aux2 = total.get(j);
-                if()
-            }
-        }
-        return lista;
-    }*/
 }
