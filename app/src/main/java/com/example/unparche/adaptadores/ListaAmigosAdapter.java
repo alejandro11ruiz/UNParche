@@ -1,5 +1,7 @@
 package com.example.unparche.adaptadores;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.unparche.R;
+import com.example.unparche.interfaces.intermedios.PostAggActividadActivity;
+import com.example.unparche.interfaces.intermedios.PreUsuarioAmigoActivity;
 
 import java.util.ArrayList;
 
@@ -59,7 +63,10 @@ public class ListaAmigosAdapter extends RecyclerView.Adapter<ListaAmigosAdapter.
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
+                    Context context = view.getContext();
+                    Intent intent = new Intent(context, PreUsuarioAmigoActivity.class);
+                    intent.putExtra("key", listaKeys.get(getAdapterPosition()));
+                    context.startActivity(intent);
                 }
             });
 

@@ -9,6 +9,7 @@ import com.example.unparche.adaptadores.ListaActividadesAdapter;
 import com.example.unparche.adaptadores.ListaAmigosAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -20,14 +21,14 @@ public class ListaAmigosActivity extends AppCompatActivity {
     ArrayList<String> amigosKeys;
     ArrayList<String> amigosNombres;
     ArrayList<String> amigosApellidos;
-    FloatingActionButton btnAgAct;
+    FloatingActionButton btnAgAmic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_amigos);
 
-        btnAgAct = findViewById(R.id.floatingActionButtonAgregarAmigos);
+        btnAgAmic = findViewById(R.id.floatingActionButtonAgregarAmigos);
         listaDeAmigos =findViewById(R.id.listaDeAmigos);
         listaDeAmigos.setLayoutManager(new LinearLayoutManager(this));
 
@@ -41,10 +42,10 @@ public class ListaAmigosActivity extends AppCompatActivity {
         ListaAmigosAdapter adapter = new ListaAmigosAdapter(amigosKeys, amigosNombres, amigosApellidos);
         listaDeAmigos.setAdapter(adapter);
 
-        btnAgAct.setOnClickListener(new View.OnClickListener() {
+        btnAgAmic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //startActivity(new Intent(ListaAmigosActivity.this, PreListaActividadesActivity.class));
+                startActivity(new Intent(ListaAmigosActivity.this, ListaUsuariosActivity.class));
             }
         });
     }
