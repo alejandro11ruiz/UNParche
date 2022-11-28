@@ -29,6 +29,9 @@
             android:name=".interfaces.usuario.ListaAmigosActivity"
             android:exported="false" />
         <activity
+            android:name=".interfaces.intermedios.PreMisSitiosActivity"
+            android:exported="false" />
+        <activity
             android:name=".interfaces.intermedios.PreListaAmigosActivity"
             android:exported="false" />
         <activity
@@ -36,6 +39,9 @@
             android:exported="false" />
         <activity
             android:name=".interfaces.intermedios.PreSitiosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".interfaces.sitio.ListaSitiosActivity"
             android:exported="false" />
         <activity
             android:name=".interfaces.sitio.VerSitioActivity"

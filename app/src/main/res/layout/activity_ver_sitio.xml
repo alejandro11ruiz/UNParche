@@ -34,7 +34,7 @@
         />
 
     <EditText
-        android:id="@+id/txtWebpage"
+        android:id="@+id/txtDireccion"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:autofillHints=""
@@ -52,7 +52,7 @@
         />
 
     <EditText
-        android:id="@+id/txtTelefono"
+        android:id="@+id/txtCiudad"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:autofillHints=""
@@ -70,7 +70,7 @@
         />
 
     <EditText
-        android:id="@+id/txtEmail"
+        android:id="@+id/txtCoorLat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:autofillHints=""
@@ -88,7 +88,7 @@
         />
 
     <EditText
-        android:id="@+id/txtProyser"
+        android:id="@+id/txtCoorLon"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:autofillHints=""

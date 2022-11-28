@@ -1,5 +1,8 @@
 package com.example.unparche.interfaces.sitio;
 
+import static android.os.Build.ID;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,10 +16,15 @@ import com.example.unparche.R;
 import android.widget.Toast;
 
 import com.example.unparche.entidades.Sitio;
+import com.example.unparche.entidades.Usuario;
+import com.example.unparche.interfaces.intermedios.PreMisSitiosActivity;
 import com.example.unparche.interfaces.login.MainActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class VerSitioActivity extends AppCompatActivity {
 
@@ -24,6 +32,7 @@ public class VerSitioActivity extends AppCompatActivity {
     Button btnGuardar, btnEditar, btnEliminar;
     Sitio sitio;
     FirebaseAuth firebaseAuth;
+    String IDS;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,26 +45,50 @@ public class VerSitioActivity extends AppCompatActivity {
         String key = user.getUid();
 
         txtNombre = findViewById(R.id.txtNombre);
-        txtDireccion = findViewById(R.id.txtWebpage);
-        txtCiudad = findViewById(R.id.txtTelefono);
-        txtCoorLat = findViewById(R.id.txtEmail);
-        txtCoorLon = findViewById(R.id.txtProyser);
+        txtDireccion = findViewById(R.id.txtDireccion);
+        txtCiudad = findViewById(R.id.txtCiudad);
+        txtCoorLat = findViewById(R.id.txtCoorLat);
+        txtCoorLon = findViewById(R.id.txtCoorLon);
         btnGuardar = findViewById(R.id.btnCreate);
         btnEditar = findViewById(R.id.btnEditar);
         btnEliminar = findViewById(R.id.btnEliminar);
 
-
+        Bundle bundle = getIntent().getExtras();
+        if(bundle!=null){
+            IDS =bundle.getString("ID");
+        }
 
         sitio = new Sitio();
 
+        FirebaseDatabase.getInstance().getReference(MainActivity.PATH_SITIOS).child(IDS).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                sitio = snapshot.getValue(Sitio.class);
+
+                if(!sitio.getNombre().equals("null"))txtNombre.setText(sitio.getNombre());
+                if(!sitio.getDireccion().equals("null"))txtDireccion.setText(sitio.getDireccion());
+                if(!sitio.getCiudad().equals("null"))txtCiudad.setText(sitio.getCiudad());
+                if(!sitio.getCoordenadaLat().equals("null"))txtCoorLat.setText(sitio.getCoordenadaLat());
+                if(!sitio.getCoordenadaLon().equals("null"))txtCoorLon.setText(sitio.getCoordenadaLon());
+
+                /*
+                if(!sitio.getNombre().equals("null"))sitio.setNombre(txtNombre.getText().toString());
+                if(!sitio.getDireccion().equals("null"))sitio.setCiudad(txtCiudad.getText().toString());
+                if(!sitio.getCiudad().equals("null"))sitio.setDireccion(txtDireccion.getText().toString());
+                if(!sitio.getCoordenadaLat().equals("null"))sitio.setCoordenadaLat(txtCoorLat.getText().toString());
+                if(!sitio.getCoordenadaLon().equals("null"))sitio.setCoordenadaLon(txtCoorLon.getText().toString());
+                 */
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
+
+
 
         if(sitio != null){
-            txtNombre.setText(sitio.getNombre());
-            txtDireccion.setText(sitio.getDireccion());
-            txtCiudad.setText(sitio.getCiudad());
-            txtCoorLat.setText(sitio.getCoordenadaLat());
-            txtCoorLon.setText(sitio.getCoordenadaLon());
-
             btnGuardar.setVisibility(View.INVISIBLE);
 
             txtNombre.setInputType(InputType.TYPE_NULL);
@@ -67,22 +100,27 @@ public class VerSitioActivity extends AppCompatActivity {
 
         btnEditar.setOnClickListener(view -> {
             Intent intent = new Intent(VerSitioActivity.this, EditarSitioActivity.class);
+            intent.putExtra("ID", IDS);
             startActivity(intent);
         });
 
         btnEliminar.setOnClickListener(view -> {
             AlertDialog.Builder builder = new AlertDialog.Builder(VerSitioActivity.this);
-            //.setNegativeButton("No", new DialogInterface.OnClickListener() {
             builder.setMessage("Confirma para borrar este contacto").
                     setPositiveButton("Confirmar", (dialogInterface, i) -> {
-                        FirebaseDatabase.getInstance().getReference(MainActivity.PATH_SITIOS).child(key).removeValue();
-                        startActivity(new Intent(this, ListaMisSitiosActivity.class));
+                        FirebaseDatabase.getInstance().getReference(MainActivity.PATH_SITIOS).child(IDS).removeValue();
+                        startActivity(new Intent(this, PreMisSitiosActivity.class));
                         Toast.makeText(this, "Contacto borrado", Toast.LENGTH_SHORT).show();
                     })
                     .setNegativeButton("Atrás", (dialogInterface, i) -> {
-
                     }).show();
         });
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, PreMisSitiosActivity.class);
+        startActivity(intent);
     }
 }

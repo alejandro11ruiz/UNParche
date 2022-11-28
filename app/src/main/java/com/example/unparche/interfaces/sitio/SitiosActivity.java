@@ -6,6 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import com.example.unparche.R;
+import com.example.unparche.interfaces.MenuPrincipalActivity;
+import com.example.unparche.interfaces.intermedios.PreMisSitiosActivity;
+import com.example.unparche.interfaces.intermedios.PreSitiosActivity;
 
 public class SitiosActivity extends AppCompatActivity {
 
@@ -20,14 +23,20 @@ public class SitiosActivity extends AppCompatActivity {
         btnBusSit=findViewById(R.id.btnBusSit);
 
         btnMisSit.setOnClickListener(view -> {
-            Intent intent = new Intent(SitiosActivity.this, ListaMisSitiosActivity.class);
+            Intent intent = new Intent(SitiosActivity.this, PreMisSitiosActivity.class);
             startActivity(intent);
         });
 
         btnBusSit.setOnClickListener(view -> {
-            Intent intent = new Intent(SitiosActivity.this, ListaMisSitiosActivity.class);
+            Intent intent = new Intent(SitiosActivity.this, PreSitiosActivity.class);
             startActivity(intent);
         });
 
     }
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, MenuPrincipalActivity.class);
+        startActivity(intent);
+    }
+
 }

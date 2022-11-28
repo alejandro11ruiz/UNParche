@@ -15,7 +15,7 @@
 
 
         <TextView
-            android:id="@+id/viewNombre"
+            android:id="@+id/viewNombreL"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
@@ -25,10 +25,10 @@
             android:text="Nombre"/>
 
         <TextView
-            android:id="@+id/viewDireccion"
+            android:id="@+id/viewDireccionL"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/viewNombre"
+            android:layout_below="@id/viewNombreL"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="5dp"
             android:text="Telefono"
@@ -36,10 +36,10 @@
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/viewCiudad"
+            android:id="@+id/viewCiudadL"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/viewDireccion"
+            android:layout_below="@id/viewDireccionL"
             android:layout_marginRight="15dp"
             android:layout_marginLeft="15dp"
             android:textColor="#636363"

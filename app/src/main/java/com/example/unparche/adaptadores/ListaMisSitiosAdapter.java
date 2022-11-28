@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.unparche.R;
-import com.example.unparche.entidades.Sitio;
 import com.example.unparche.interfaces.sitio.VerSitioActivity;
 
 import java.util.ArrayList;
@@ -21,13 +20,20 @@ import java.util.stream.Collectors;
 public class ListaMisSitiosAdapter extends RecyclerView.Adapter<ListaMisSitiosAdapter.SitioViewHolder> {
 
 
-    ArrayList<Sitio> listaSitios;
-    ArrayList<Sitio> listaOriginal;
+    ArrayList<String> listaSitios;
+    ArrayList<String> listaDir;
+    ArrayList<String> listaCiu;
+    ArrayList<String> listakey;
+    boolean edit;
 
-    public ListaMisSitiosAdapter(ArrayList<Sitio> listaSitios){
+    ArrayList<String> listaOriginal;
+
+    public ListaMisSitiosAdapter(ArrayList<String> listaSitios, ArrayList<String> listaDir,ArrayList<String> listaCiu,ArrayList<String> listakey, boolean edit){
         this.listaSitios = listaSitios;
-        listaOriginal = new ArrayList<>();
-        listaOriginal.addAll(listaSitios);
+        this.listaDir = listaDir;
+        this.listaCiu = listaCiu;
+        this.listakey = listakey;
+        this.edit = edit;
     }
     @NonNull
     @Override
@@ -38,12 +44,12 @@ public class ListaMisSitiosAdapter extends RecyclerView.Adapter<ListaMisSitiosAd
 
     @Override
     public void onBindViewHolder(@NonNull SitioViewHolder holder, int position) {
-        holder.viewNombre.setText(listaSitios.get(position).getNombre());
-        holder.viewTelefono.setText(listaSitios.get(position).getDireccion());
-        holder.viewEmail.setText(listaSitios.get(position).getCiudad());
+        holder.viewNombre.setText(listaSitios.get(position));
+        holder.viewDireccion.setText(listaDir.get(position));
+        holder.viewCiudad.setText(listaCiu.get(position));
     }
 
-
+/*
     public void filtrado(String txtBuscar){
         int longitud = txtBuscar.length();
         if(longitud==0){
@@ -51,13 +57,13 @@ public class ListaMisSitiosAdapter extends RecyclerView.Adapter<ListaMisSitiosAd
             listaSitios.addAll(listaOriginal);
         } else {
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
-                List<Sitio> coleccion = listaSitios.stream().filter(i -> i.getNombre().toLowerCase()
+                List<String> coleccion = listaSitios.stream().filter(i -> i.toLowerCase()
                         .contains(txtBuscar.toLowerCase())).collect(Collectors.toList());
                 listaSitios.clear();
                 listaSitios.addAll(coleccion);
             } else {
-                for (Sitio c:listaOriginal){
-                    if(c.getNombre().toLowerCase().contains(txtBuscar.toLowerCase())){
+                for (String c:listaOriginal){
+                    if(c.toLowerCase().contains(txtBuscar.toLowerCase())){
                         listaSitios.add(c);
                     }
                 }
@@ -65,7 +71,7 @@ public class ListaMisSitiosAdapter extends RecyclerView.Adapter<ListaMisSitiosAd
         }
         notifyDataSetChanged();
     }
-
+*/
 
     @Override
     public int getItemCount() {
@@ -74,21 +80,22 @@ public class ListaMisSitiosAdapter extends RecyclerView.Adapter<ListaMisSitiosAd
 
     public class SitioViewHolder extends RecyclerView.ViewHolder {
 
-        TextView viewNombre, viewTelefono, viewEmail;
+        TextView viewNombre, viewDireccion, viewCiudad;
 
         public SitioViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            viewNombre=itemView.findViewById(R.id.viewNombre);
-            viewTelefono=itemView.findViewById(R.id.viewDireccion);
-            viewEmail=itemView.findViewById(R.id.viewCiudad);
+            viewNombre=itemView.findViewById(R.id.viewNombreL);
+            viewDireccion=itemView.findViewById(R.id.viewDireccionL);
+            viewCiudad=itemView.findViewById(R.id.viewCiudadL);
 
-            itemView.setOnClickListener(view -> {
-                Context context = view.getContext();
-                Intent intent = new Intent(context, VerSitioActivity.class);
-                intent.putExtra("ID", listaSitios.get(getAdapterPosition()).getID());
-                context.startActivity(intent);
-            });
+            if (edit){
+                itemView.setOnClickListener(view -> {
+                    Context context = view.getContext();
+                    Intent intent = new Intent(context, VerSitioActivity.class);
+                    intent.putExtra("ID", listakey.get(getAdapterPosition()));
+                    context.startActivity(intent);
+                });}
         }
     }
 }

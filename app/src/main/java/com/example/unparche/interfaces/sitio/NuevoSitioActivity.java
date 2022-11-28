@@ -9,8 +9,11 @@ import android.widget.EditText;
 
 import com.example.unparche.R;
 import com.example.unparche.entidades.Sitio;
+import com.example.unparche.interfaces.intermedios.PreMisSitiosActivity;
+import com.example.unparche.interfaces.intermedios.PreSitiosActivity;
 import com.example.unparche.interfaces.login.MainActivity;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class NuevoSitioActivity extends AppCompatActivity {
@@ -26,14 +29,10 @@ public class NuevoSitioActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nuevo_sitio);
 
-// TODO Borrar el inicion de senseión, es solo para validar
-        //firebaseAuth.signInWithEmailAndPassword("jsdominguezc@unal.edu.co", "jeff1234");
-
-        //TODO se descomenta para cuando se agrega al código principal
-        //firebaseAuth = FirebaseAuth.getInstance();
-        //FirebaseAuth mAuth =FirebaseAuth.getInstance();
-        //FirebaseUser user = mAuth.getCurrentUser();
-        //String key = user.getUid();
+        firebaseAuth = FirebaseAuth.getInstance();
+        FirebaseAuth mAuth =FirebaseAuth.getInstance();
+        FirebaseUser user = mAuth.getCurrentUser();
+        String key = user.getUid();
 
         sitio= new Sitio();
 
@@ -52,17 +51,20 @@ public class NuevoSitioActivity extends AppCompatActivity {
             if(!txtDireccion.getText().toString().isEmpty()) sitio.setDireccion(txtDireccion.getText().toString());
             if(!txtCoorLat.getText().toString().isEmpty()) sitio.setCoordenadaLat(txtCoorLat.getText().toString());
             if(!txtCoorLon.getText().toString().isEmpty()) sitio.setCoordenadaLon(txtCoorLon.getText().toString());
+            sitio.setID(key);
 
-            FirebaseDatabase.getInstance().getReference(MainActivity.PATH_SITIOS).child("lolololol").setValue(sitio);
+            FirebaseDatabase.getInstance().getReference(MainActivity.PATH_SITIOS).push().setValue(sitio);
 
 
-            Intent intent = new Intent(NuevoSitioActivity.this, ListaMisSitiosActivity.class);
+            Intent intent = new Intent(NuevoSitioActivity.this, PreMisSitiosActivity.class);
 
 
             startActivity(intent);
         });
-
-
-
+    }
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, PreMisSitiosActivity.class);
+        startActivity(intent);
     }
 }

@@ -1,22 +1,22 @@
 package com.example.unparche.interfaces.sitio;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.SearchView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.unparche.R;
 import com.example.unparche.adaptadores.ListaMisSitiosAdapter;
-import com.example.unparche.entidades.Sitio;
 
 import java.util.ArrayList;
 
-public class ListaMisSitiosActivity extends AppCompatActivity implements SearchView.OnQueryTextListener{
+public class ListaSitiosActivity extends AppCompatActivity implements SearchView.OnQueryTextListener{
 
     SearchView txtBuscar;
     RecyclerView listaMisSitios;
@@ -47,7 +47,7 @@ public class ListaMisSitiosActivity extends AppCompatActivity implements SearchV
             keylist=bundle.getStringArrayList("keylist");
         }
 
-        adapter = new ListaMisSitiosAdapter(listaArrayMisSitios,direccion,ciudad,keylist,true); // aquí se agrega la lista del recycler
+        adapter = new ListaMisSitiosAdapter(listaArrayMisSitios,direccion,ciudad,keylist,false); // aquí se agrega la lista del recycler
         listaMisSitios.setAdapter(adapter);
 
         txtBuscar.setOnQueryTextListener(this);
@@ -56,18 +56,13 @@ public class ListaMisSitiosActivity extends AppCompatActivity implements SearchV
 
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_mis_sitios, menu);
+        inflater.inflate(R.menu.menu_sitios, menu);
         return true;
     }
 
     public boolean onOptionsItemSelected(MenuItem item){
 
-
-
         switch (item.getItemId()){
-            case R.id.menuNuevoSitio:
-                nuevoRegistro();
-                return true;
             case R.id.menuClasificacionMisSitios:
                 showDialog(1);
             default:
