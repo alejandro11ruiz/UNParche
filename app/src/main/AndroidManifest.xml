@@ -15,25 +15,42 @@
         tools:targetApi="31">
         <activity
             android:name=".interfaces.intermedios.PostBuscarUsuarioActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Buscando..."/>
         <activity
             android:name=".interfaces.usuario.ListaUsuariosActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Buscar usuarios"
+            android:parentActivityName=".interfaces.usuario.ListaAmigosActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".interfaces.usuario.ListaAmigosActivity"/>
+        </activity>
         <activity
             android:name=".interfaces.intermedios.PreUsuarioAmigoActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Usuario"/>
         <activity
             android:name=".interfaces.usuario.UsuarioAmigoActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Usuario"
+            />
         <activity
             android:name=".interfaces.usuario.ListaAmigosActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Amigos"
+            android:parentActivityName=".interfaces.MenuPrincipalActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".interfaces.MenuPrincipalActivity"/>
+        </activity>
         <activity
             android:name=".interfaces.intermedios.PreMisSitiosActivity"
             android:exported="false" />
         <activity
             android:name=".interfaces.intermedios.PreListaAmigosActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Amigos"/>
         <activity
             android:name=".interfaces.sitio.EditarSitioActivity"
             android:exported="false" />
@@ -57,49 +74,90 @@
             android:exported="false" />
         <activity
             android:name=".interfaces.actividad.ActividadCrearActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Crear actividad"
+            android:parentActivityName=".interfaces.actividad.ListaActividadesTotalesActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".interfaces.actividad.ListaActividadesTotalesActivity"/>
+        </activity>
         <activity
             android:name=".interfaces.intermedios.PostAggActividadActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Agregando..."/>
         <activity
             android:name=".interfaces.actividad.ListaActividadesTotalesActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Agregar actividades favoritas"
+            android:parentActivityName=".interfaces.actividad.ListaActividadesActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".interfaces.actividad.ListaActividadesActivity"/>
+        </activity>
         <activity
             android:name=".interfaces.intermedios.PreListaActividadesActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Agregar actividades favoritas"/>
         <activity
             android:name=".interfaces.actividad.ListaActividadesActivity"
             android:exported="false"
-            android:label="Mis actividades" />
+            android:label="Actividades favoritas"/>
         <activity
             android:name=".interfaces.intermedios.PostLoginActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Cargando..."/>
         <activity
             android:name=".interfaces.login.ResetPasswordActivity"
             android:exported="false"
-            android:label="@string/frame_name_reset" />
+            android:label="@string/frame_name_reset"
+            android:parentActivityName=".interfaces.login.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".interfaces.login.MainActivity"/>
+        </activity>
         <activity
             android:name=".interfaces.login.RegistrarActivity"
             android:exported="false"
-            android:label="@string/frame_name_registro" />
+            android:label="@string/frame_name_registro"
+            android:parentActivityName=".interfaces.login.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".interfaces.login.MainActivity"/>
+        </activity>
         <activity
             android:name=".interfaces.intermedios.PreUsuarioActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Perfil"/>
         <activity
             android:name=".interfaces.usuario.UsuarioActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Perfil"
+            android:parentActivityName=".interfaces.MenuPrincipalActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".interfaces.MenuPrincipalActivity"/>
+        </activity>
         <activity
             android:name=".interfaces.usuario.UsuarioEditarActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Editar perfil"
+            android:parentActivityName=".interfaces.usuario.UsuarioActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".interfaces.usuario.UsuarioActivity"/>
+        </activity>
         <activity
             android:name=".interfaces.usuario.UsuarioInicializarActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Primer paso"/>
         <activity
             android:name=".interfaces.MenuPrincipalActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Menu"/>
         <activity
             android:name=".interfaces.login.MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:label="@string/action_sign_in">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

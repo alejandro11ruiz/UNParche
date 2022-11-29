@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.unparche.R;
 import com.example.unparche.entidades.Usuario;
 import com.example.unparche.interfaces.MenuPrincipalActivity;
+import com.example.unparche.interfaces.intermedios.PostLoginActivity;
 import com.example.unparche.interfaces.login.MainActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -86,4 +87,11 @@ public class UsuarioInicializarActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, PostLoginActivity.class);
+        startActivity(intent);
+    }
+
 }

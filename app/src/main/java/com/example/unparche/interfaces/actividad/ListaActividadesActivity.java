@@ -6,7 +6,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.unparche.R;
 import com.example.unparche.adaptadores.ListaActividadesAdapter;
+import com.example.unparche.interfaces.intermedios.PostAggActividadActivity;
 import com.example.unparche.interfaces.intermedios.PreListaActividadesActivity;
+import com.example.unparche.interfaces.intermedios.PreUsuarioActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import android.content.Intent;
@@ -45,4 +47,11 @@ public class ListaActividadesActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, PreUsuarioActivity.class);
+        startActivity(intent);
+    }
+
 }

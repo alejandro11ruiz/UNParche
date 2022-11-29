@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.example.unparche.R;
 import com.example.unparche.adaptadores.ListaAmigosAdapter;
 import com.example.unparche.interfaces.intermedios.PostBuscarUsuarioActivity;
+import com.example.unparche.interfaces.intermedios.PreMisSitiosActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -60,4 +61,11 @@ public class ListaUsuariosActivity extends AppCompatActivity {
         });
 
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, ListaAmigosActivity.class);
+        startActivity(intent);
+    }
+
 }

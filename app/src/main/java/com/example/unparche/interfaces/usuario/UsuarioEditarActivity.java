@@ -85,7 +85,12 @@ public class UsuarioEditarActivity extends AppCompatActivity {
                 },1000);
             }
         });
-
-
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, UsuarioActivity.class);
+        startActivity(intent);
+    }
+
 }

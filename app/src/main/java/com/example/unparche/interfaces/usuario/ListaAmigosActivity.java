@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.unparche.R;
 import com.example.unparche.adaptadores.ListaActividadesAdapter;
 import com.example.unparche.adaptadores.ListaAmigosAdapter;
+import com.example.unparche.interfaces.MenuPrincipalActivity;
+import com.example.unparche.interfaces.intermedios.PreMisSitiosActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import android.content.Intent;
@@ -49,4 +51,11 @@ public class ListaAmigosActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, MenuPrincipalActivity.class);
+        startActivity(intent);
+    }
+
 }

@@ -3,6 +3,7 @@ package com.example.unparche.interfaces.usuario;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.unparche.R;
 import com.example.unparche.interfaces.actividad.ListaActividadesActivity;
+import com.example.unparche.interfaces.intermedios.PreListaAmigosActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import android.content.Intent;
@@ -15,6 +16,7 @@ public class UsuarioAmigoActivity extends AppCompatActivity {
 
     TextView tvEmail, tvNombre, tvApellido, tvEdad, tvDescripcion;
     Button btnActividades, btnSeguir;
+    boolean amic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,12 +40,13 @@ public class UsuarioAmigoActivity extends AppCompatActivity {
             if(!bundle.getString("apellido").equals("null"))tvApellido.setText(bundle.getString("apellido"));
             if(!bundle.getString("edad").equals("null"))tvEdad.setText(bundle.getString("edad"));
             if(!bundle.getString("descripcion").equals("null"))tvDescripcion.setText(bundle.getString("descripcion"));
-            if(bundle.getBoolean("amic")){
-                btnSeguir.setEnabled(true);
-                btnSeguir.setVisibility(View.VISIBLE);
-            }else{
+            amic = bundle.getBoolean("amic");
+            if(amic){
                 btnSeguir.setEnabled(false);
                 btnSeguir.setVisibility(View.INVISIBLE);
+            }else{
+                btnSeguir.setEnabled(true);
+                btnSeguir.setVisibility(View.VISIBLE);
             }
         }
 
@@ -56,4 +59,16 @@ public class UsuarioAmigoActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public void onBackPressed() {
+        if(amic) {
+            Intent intent = new Intent(this, PreListaAmigosActivity.class);
+            startActivity(intent);
+        }else{
+            Intent intent = new Intent(this, ListaUsuariosActivity.class);
+            startActivity(intent);
+        }
+    }
+
 }

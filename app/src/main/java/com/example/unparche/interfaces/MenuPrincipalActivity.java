@@ -5,6 +5,7 @@ import com.example.unparche.R;
 import com.example.unparche.interfaces.intermedios.PreListaAmigosActivity;
 import com.example.unparche.interfaces.intermedios.PreUsuarioActivity;
 import com.example.unparche.interfaces.sitio.SitiosActivity;
+import com.example.unparche.interfaces.usuario.ListaAmigosActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -54,8 +55,12 @@ public class MenuPrincipalActivity extends AppCompatActivity {
                 startActivity(new Intent(MenuPrincipalActivity.this, PreListaAmigosActivity.class));
             }
         });
-
-
-
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, MenuPrincipalActivity.class);
+        startActivity(intent);
+    }
+
 }

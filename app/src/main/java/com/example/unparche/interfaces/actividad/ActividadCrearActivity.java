@@ -5,6 +5,7 @@ import com.example.unparche.R;
 import com.example.unparche.entidades.Actividad;
 import com.example.unparche.interfaces.intermedios.PreListaActividadesActivity;
 import com.example.unparche.interfaces.login.MainActivity;
+import com.example.unparche.interfaces.usuario.ListaAmigosActivity;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -72,6 +73,12 @@ public class ActividadCrearActivity extends AppCompatActivity {
         String aux = act.toLowerCase();
         String cap = aux.substring(0, 1).toUpperCase() + aux.substring(1);
         return cap;
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, PreListaActividadesActivity.class);
+        startActivity(intent);
     }
 
 }

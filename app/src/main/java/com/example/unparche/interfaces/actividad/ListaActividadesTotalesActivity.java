@@ -6,6 +6,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.unparche.R;
 import com.example.unparche.adaptadores.ListaActividadesAggAdapter;
+import com.example.unparche.interfaces.intermedios.PostAggActividadActivity;
+import com.example.unparche.interfaces.intermedios.PreListaActividadesActivity;
+import com.example.unparche.interfaces.usuario.ListaAmigosActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import android.content.Intent;
@@ -46,4 +49,11 @@ public class ListaActividadesTotalesActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, PostAggActividadActivity.class);
+        startActivity(intent);
+    }
+
 }

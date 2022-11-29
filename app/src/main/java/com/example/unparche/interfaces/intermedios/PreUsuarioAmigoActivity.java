@@ -96,10 +96,10 @@ public class PreUsuarioAmigoActivity extends AppCompatActivity {
     private boolean esAmic(ArrayList<String> amigos, String key){
         for(String val : amigos){
             if(key.equals(val)){
-                return false;
+                return true;
             }
         }
-        return true;
+        return false;
     }
 
 }
