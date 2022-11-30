@@ -22,20 +22,20 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class PostAggActividadActivity extends AppCompatActivity {
+public class PostAggAmigoActivity extends AppCompatActivity {
 
     ProgressBar progressBar;
     Usuario usuario;
     FirebaseAuth firebaseAuth;
-    ArrayList<String> actividades;
-    String key;
+    ArrayList<String> amigos;
+    String keyToAgg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_post_agg_actividad);
+        setContentView(R.layout.activity_post_agg_amigo);
 
-        actividades = new ArrayList<>();
+        amigos = new ArrayList<>();
 
         progressBar = findViewById(R.id.progressBar);
         progressBar.setVisibility(View.VISIBLE);
@@ -44,57 +44,58 @@ public class PostAggActividadActivity extends AppCompatActivity {
         FirebaseAuth mAuth =FirebaseAuth.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
 
-        //String key = user.getEmail().replace(".",MainActivity.DOT_REPLACEMENT);
-        key = user.getUid();
+        String key = user.getUid();
+
+        Bundle bundle = getIntent().getExtras();
+        if (bundle!=null){
+            keyToAgg = bundle.getString("key");
+        }
+
 
         FirebaseDatabase.getInstance().getReference(MainActivity.PATH_USUARIOS).child(key).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 usuario = snapshot.getValue(Usuario.class);
+                if(usuario.getAmigos().isEmpty()){
+                    amigos.add(keyToAgg);
+                }else {
+                    amigos = usuario.getAmigos();
+                    boolean existe = yaAmigo(amigos, keyToAgg);
+                    if(existe){
+                        Toast.makeText(PostAggAmigoActivity.this, "Ya sigues a este usuario.", Toast.LENGTH_SHORT).show();
+                    }else{
+                        amigos.add(keyToAgg);
+                    }
+                }
+                usuario.setAmigos(amigos);
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
             }
         });
 
-
         Handler handler = new Handler();
 
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Bundle bundle = getIntent().getExtras();
-                String nAct = "null";
-                if(bundle!=null){
-                    nAct = bundle.getString("key");
-                    boolean ext = yaExiste(nAct, usuario.getActividades());
-                    if(!ext&&!nAct.equals("null")){
-                        ArrayList<String> aux = usuario.getActividades();
-                        aux.add(nAct);
-                        usuario.setActividades(aux);
-                        FirebaseDatabase.getInstance().getReference(MainActivity.PATH_USUARIOS).child(key).setValue(usuario);
-                    }else if(ext){
-                        Toast.makeText(PostAggActividadActivity.this, "Esta actividad ya es una de tus favoritas.", Toast.LENGTH_SHORT).show();
-                    }
-                }
+                FirebaseDatabase.getInstance().getReference(MainActivity.PATH_USUARIOS).child(key).setValue(usuario);
 
-                Intent intent = new Intent(PostAggActividadActivity.this, ListaActividadesActivity.class);
-                intent.putStringArrayListExtra("actividades", usuario.getActividades());
-                intent.putExtra("yo", true);
-                intent.putExtra("key", key);
+                Intent intent = new Intent(PostAggAmigoActivity.this, PreUsuarioAmigoActivity.class);
+                intent.putExtra("key", keyToAgg);
                 startActivity(intent);
             }
         },2000);
 
     }
 
-    private boolean yaExiste(String nueva, ArrayList<String> acts){
-        int tam = acts.size();
-        for(int i = 0; i < tam; i++){
-            if(acts.get(i).equals(nueva)){
+    private boolean yaAmigo(ArrayList<String> amigos, String amigo){
+        for(String val : amigos){
+            if(val.equals(amigo)){
                 return true;
             }
         }
         return false;
     }
+
 }

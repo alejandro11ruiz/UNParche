@@ -83,11 +83,13 @@ public class PreUsuarioAmigoActivity extends AppCompatActivity {
                 intent.putExtra("apellido", usuario.getApellido());
                 intent.putExtra("edad", usuario.getEdad());
                 intent.putExtra("descripcion", usuario.getDescripcion());
-                //intent.putStringArrayListExtra("amigos", usuario.getAmigos());
+                intent.putExtra("key", key);
                 intent.putStringArrayListExtra("actividades", usuario.getActividades());
                 intent.putExtra("amic", amic);
                 //intent.putStringArrayListExtra("sitios", usuario.getSitios());
                 //intent.putStringArrayListExtra("eventos", usuario.getEventos());
+                intent.putExtra("yo", false);
+                intent.putExtra("key", key);
                 startActivity(intent);
             }
         },2000);

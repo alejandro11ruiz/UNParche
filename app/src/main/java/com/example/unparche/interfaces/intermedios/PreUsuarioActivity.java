@@ -24,7 +24,7 @@ public class PreUsuarioActivity extends AppCompatActivity {
 
     ProgressBar progressBar;
     Usuario usuario;
-    FirebaseAuth firebaseAuth;
+    String key;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,12 +34,17 @@ public class PreUsuarioActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar);
         progressBar.setVisibility(View.VISIBLE);
 
-        firebaseAuth = FirebaseAuth.getInstance();
-        FirebaseAuth mAuth =FirebaseAuth.getInstance();
-        FirebaseUser user = mAuth.getCurrentUser();
+        Bundle bundle = getIntent().getExtras();
 
-        //String key = user.getEmail().replace(".",MainActivity.DOT_REPLACEMENT);
-        String key = user.getUid();
+        if (bundle==null){
+            FirebaseAuth mAuth =FirebaseAuth.getInstance();
+            FirebaseUser user = mAuth.getCurrentUser();
+            key = user.getUid();
+        }else{
+            key = bundle.getString("key");
+        }
+
+
 
         FirebaseDatabase.getInstance().getReference(MainActivity.PATH_USUARIOS).child(key).addValueEventListener(new ValueEventListener() {
             @Override
@@ -66,6 +71,8 @@ public class PreUsuarioActivity extends AppCompatActivity {
                 intent.putStringArrayListExtra("actividades", usuario.getActividades());
                 intent.putStringArrayListExtra("sitios", usuario.getSitios());
                 intent.putStringArrayListExtra("eventos", usuario.getEventos());
+                intent.putExtra("yo", true);
+                intent.putExtra("key", key);
                 startActivity(intent);
             }
         },2000);

@@ -24,8 +24,6 @@ public class PostLoginActivity extends AppCompatActivity {
 
     ProgressBar progressBar;
     Usuario usuario;
-    FirebaseAuth firebaseAuth;
-
     Handler handler;
 
     @Override
@@ -36,7 +34,6 @@ public class PostLoginActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar);
         progressBar.setVisibility(View.VISIBLE);
 
-        firebaseAuth = FirebaseAuth.getInstance();
         FirebaseAuth mAuth =FirebaseAuth.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
 
@@ -49,7 +46,6 @@ public class PostLoginActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 usuario = snapshot.getValue(Usuario.class);
-
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
@@ -64,7 +60,7 @@ public class PostLoginActivity extends AppCompatActivity {
                 } else {
                     startActivity(new Intent(PostLoginActivity.this, MenuPrincipalActivity.class));
                 }
-            }},2000);
+            }},3000);
 
     }
 }

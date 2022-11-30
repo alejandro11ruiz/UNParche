@@ -81,7 +81,7 @@ public class PostBuscarUsuarioActivity extends AppCompatActivity {
         for (DataSnapshot value : data) {
             String nom = (String) value.child("nombre").getValue().toString().toLowerCase().trim();
             String ape = (String) value.child("apellido").getValue().toString().toLowerCase().trim();
-            if (nom.equals(texto)||ape.equals(texto)) {
+            if (nom.contains(texto)||ape.contains(texto)) {
                 aux.add(value.getKey());
             }
         }

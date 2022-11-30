@@ -56,6 +56,8 @@ public class UsuarioActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(UsuarioActivity.this, ListaActividadesActivity.class);
                 intent.putStringArrayListExtra("actividades", getIntent().getExtras().getStringArrayList("actividades"));
+                intent.putExtra("yo", bundle.getBoolean("yo"));
+                intent.putExtra("key", bundle.getString("key"));
                 startActivity(intent);
             }
         });
