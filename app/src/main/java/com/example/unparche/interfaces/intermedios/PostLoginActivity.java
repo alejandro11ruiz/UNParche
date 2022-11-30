@@ -25,6 +25,7 @@ public class PostLoginActivity extends AppCompatActivity {
     ProgressBar progressBar;
     Usuario usuario;
     Handler handler;
+    String key;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,9 +39,7 @@ public class PostLoginActivity extends AppCompatActivity {
         FirebaseUser user = mAuth.getCurrentUser();
 
         //String key = user.getEmail().replace(".",MainActivity.DOT_REPLACEMENT);
-        String key = user.getUid();
-
-        handler = new Handler();
+        key = user.getUid();
 
         FirebaseDatabase.getInstance().getReference(MainActivity.PATH_USUARIOS).child(key).addValueEventListener(new ValueEventListener() {
             @Override
@@ -51,6 +50,8 @@ public class PostLoginActivity extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {
             }
         });
+
+        handler = new Handler();
 
         handler.postDelayed(new Runnable() {
             @Override
