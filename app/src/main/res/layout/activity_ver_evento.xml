@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".interfaces.evento.VerEventosActivity">
+
+    <TextView
+        android:id="@+id/viewNombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nombre del evento"
+        />
+
+    <EditText
+        android:id="@+id/txtNombreE"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:ems="10"
+        android:labelFor="@id/viewNombre"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/viewHora"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hora"
+        />
+
+    <EditText
+        android:id="@+id/txtHoraE"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:labelFor="@+id/viewHora"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/viewSitio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sitio"
+        />
+
+    <EditText
+        android:id="@+id/txtSitioE"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:ems="10"
+        android:labelFor="@+id/viewSitio"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/viewActividad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Actividad"
+        />
+
+    <EditText
+        android:id="@+id/txtActividadE"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:ems="10"
+        android:labelFor="@+id/viewEmail"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
+
+        <Button
+            android:id="@+id/btnCreate"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:text="Guardar"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/btnEditar"
+            android:layout_marginLeft="10dp"
+            android:text="Editar"
+            android:layout_toRightOf="@id/btnCreate"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            />
+
+        <Button
+            android:id="@+id/btnEliminar"
+            android:layout_marginLeft="10dp"
+            android:text="Borrar"
+            android:layout_toRightOf="@id/btnEditar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            />
+
+    </RelativeLayout>
+
+
+</LinearLayout>

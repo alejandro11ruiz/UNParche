@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.unparche.interfaces.sitio.SitiosActivity">
+
+    <Button
+        android:id="@+id/btnMisSit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:textSize="25dp"
+        android:gravity="center_horizontal"
+        android:text="Mis sitios"
+        android:textAllCaps="false"
+        />
+    <Button
+        android:id="@+id/btnBusSit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:textSize="25dp"
+        android:gravity="center_horizontal"
+        android:text="Buscar sitio"
+        android:textAllCaps="false"
+        />
+
+    <Button
+        android:id="@+id/btnCerca"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:textSize="25dp"
+        android:gravity="center_horizontal"
+        android:text="Sitios cerca a tu ubicación"
+        android:textAllCaps="false" />
+
+
+</LinearLayout>

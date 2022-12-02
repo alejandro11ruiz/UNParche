@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "345028314013",
+    "firebase_url": "https://unparche42-default-rtdb.firebaseio.com",
+    "project_id": "unparche42",
+    "storage_bucket": "unparche42.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:345028314013:android:568076183fabe1b7ffe574",
+        "android_client_info": {
+          "package_name": "com.example.unparche"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "345028314013-jbkpka055vucutgodnsc9q960f83sjrl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.unparche",
+            "certificate_hash": "494e9cecee062fdec67c46d14238416e085f62c0"
+          }
+        },
+        {
+          "client_id": "345028314013-57j6at75sphmkt833mrpe7eb3417cjiq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCAS4pgvHKclxQc44PbX5wEatzlqKQSbXA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "345028314013-57j6at75sphmkt833mrpe7eb3417cjiq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

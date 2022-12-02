@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.unparche" >
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@drawable/icono"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/icono"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.UNParche"
+        tools:targetApi="31" >
+
+        <!--
+             TODO: Before you run your application, you need a Google Maps API key.
+
+             To get one, follow the directions here:
+
+                https://developers.google.com/maps/documentation/android-sdk/get-api-key
+
+             Once you have your API key (it starts with "AIza"), define a new property in your
+             project's local.properties file (e.g. MAPS_API_KEY=Aiza...), and replace the
+             "YOUR_API_KEY" string in this file with "${MAPS_API_KEY}".
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCvldKGlhfYlx3QZhcRnrbGz1WWrptEO7E" />
+
+        <activity
+            android:name=".interfaces.sitio.SitiosCercaActivity"
+            android:exported="false"
+            android:label="@string/title_activity_sitios_cerca" />
+        <activity
+            android:name=".interfaces.evento.NuevoEventoActivity"
+            android:exported="false"
+            android:label="NuevoEventos" />
+        <activity
+            android:name=".interfaces.sitio.LocalizarSitioActivity"
+            android:exported="false"
+            android:label="@string/title_activity_localizar_sitio" />
+        <activity
+            android:name=".interfaces.intermedios.PostAggAmigoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".interfaces.intermedios.PostBuscarUsuarioActivity"
+            android:exported="false"
+            android:label="Buscando..." />
+        <activity
+            android:name=".interfaces.usuario.ListaUsuariosActivity"
+            android:exported="false"
+            android:label="Buscar usuarios"
+            android:parentActivityName=".interfaces.usuario.ListaAmigosActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".interfaces.usuario.ListaAmigosActivity" />
+        </activity>
+        <activity
+            android:name=".interfaces.intermedios.PreUsuarioAmigoActivity"
+            android:exported="false"
+            android:label="Usuario" />
+        <activity
+            android:name=".interfaces.usuario.UsuarioAmigoActivity"
+            android:exported="false"
+            android:label="Usuario" />
+        <activity
+            android:name=".interfaces.usuario.ListaAmigosActivity"
+            android:exported="false"
+            android:label="Seguidos"
+            android:parentActivityName=".interfaces.MenuPrincipalActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".interfaces.MenuPrincipalActivity" />
+        </activity>
+        <activity
+            android:name=".interfaces.intermedios.PreMisSitiosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".interfaces.intermedios.PreListaAmigosActivity"
+            android:exported="false"
+            android:label="Seguidos" />
+        <activity
+            android:name=".interfaces.sitio.EditarSitioActivity"
+            android:exported="false" />
+        <activity
+            android:name=".interfaces.intermedios.PreSitiosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".interfaces.sitio.ListaSitiosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".interfaces.sitio.VerSitioActivity"
+            android:exported="false" />
+        <activity
+            android:name=".interfaces.sitio.NuevoSitioActivity"
+            android:exported="false" />
+        <activity
+            android:name=".interfaces.sitio.ListaMisSitiosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".interfaces.sitio.SitiosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".interfaces.actividad.ActividadCrearActivity"
+            android:exported="false"
+            android:label="Crear actividad"
+            android:parentActivityName=".interfaces.actividad.ListaActividadesTotalesActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".interfaces.actividad.ListaActividadesTotalesActivity" />
+        </activity>
+        <activity
+            android:name=".interfaces.intermedios.PostAggActividadActivity"
+            android:exported="false"
+            android:label="Agregando..." />
+        <activity
+            android:name=".interfaces.actividad.ListaActividadesTotalesActivity"
+            android:exported="false"
+            android:label="Agregar actividades favoritas"
+            android:parentActivityName=".interfaces.actividad.ListaActividadesActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".interfaces.actividad.ListaActividadesActivity" />
+        </activity>
+        <activity
+            android:name=".interfaces.intermedios.PreListaActividadesActivity"
+            android:exported="false"
+            android:label="Agregar actividades favoritas" />
+        <activity
+            android:name=".interfaces.actividad.ListaActividadesActivity"
+            android:exported="false"
+            android:label="Actividades favoritas" />
+        <activity
+            android:name=".interfaces.intermedios.PostLoginActivity"
+            android:exported="false"
+            android:label="Cargando..." />
+        <activity
+            android:name=".interfaces.login.ResetPasswordActivity"
+            android:exported="false"
+            android:label="@string/frame_name_reset"
+            android:parentActivityName=".interfaces.login.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".interfaces.login.MainActivity" />
+        </activity>
+        <activity
+            android:name=".interfaces.login.RegistrarActivity"
+            android:exported="false"
+            android:label="@string/frame_name_registro"
+            android:parentActivityName=".interfaces.login.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".interfaces.login.MainActivity" />
+        </activity>
+        <activity
+            android:name=".interfaces.intermedios.PreUsuarioActivity"
+            android:exported="false"
+            android:label="Perfil" />
+        <activity
+            android:name=".interfaces.usuario.UsuarioActivity"
+            android:exported="false"
+            android:label="Perfil"
+            android:parentActivityName=".interfaces.MenuPrincipalActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".interfaces.MenuPrincipalActivity" />
+        </activity>
+        <activity
+            android:name=".interfaces.usuario.UsuarioEditarActivity"
+            android:exported="false"
+            android:label="Editar perfil"
+            android:parentActivityName=".interfaces.usuario.UsuarioActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".interfaces.usuario.UsuarioActivity" />
+        </activity>
+        <activity
+            android:name=".interfaces.usuario.UsuarioInicializarActivity"
+            android:exported="false"
+            android:label="Primer paso" />
+        <activity
+            android:name=".interfaces.intermedios.PreListaEventosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".interfaces.evento.ListaEventosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".interfaces.evento.VerEventosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".interfaces.evento.EditarEventoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".interfaces.MenuPrincipalActivity"
+            android:exported="false"
+            android:label="Menu" />
+        <activity
+            android:name=".interfaces.login.MainActivity"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
